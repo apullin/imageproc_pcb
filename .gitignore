@@ -1,9 +1,10 @@
-*.b#*	
-*.s#*
-*.l#*
-doc/*
+/*.b#*	
+/*.s#*
+/*.l#*
+/doc/
 gerber/*
 dru/
 cam/
 lbr/
 gerb/*
+
