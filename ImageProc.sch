@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="2" fill="1" visible="no" active="no"/>
@@ -88,6 +88,10 @@
 <layer number="112" name="tSilk" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="113" name="IDFDebug" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="116" name="Patch_BOT" color="9" fill="4" visible="no" active="yes"/>
+<layer number="117" name="mPads" color="7" fill="1" visible="no" active="no"/>
+<layer number="118" name="mVias" color="7" fill="1" visible="no" active="no"/>
+<layer number="119" name="mUnrouted" color="7" fill="1" visible="no" active="no"/>
+<layer number="120" name="mDimension" color="7" fill="1" visible="no" active="no"/>
 <layer number="121" name="_tsilk" color="7" fill="1" visible="no" active="yes"/>
 <layer number="122" name="_bsilk" color="7" fill="1" visible="no" active="yes"/>
 <layer number="123" name="tTestmark" color="7" fill="1" visible="yes" active="yes"/>
@@ -96,15 +100,39 @@
 <layer number="126" name="_bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="127" name="_tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="128" name="_bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="129" name="mtStop" color="7" fill="1" visible="no" active="no"/>
+<layer number="130" name="mbStop" color="7" fill="1" visible="no" active="no"/>
 <layer number="131" name="tAdjust" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="132" name="bAdjust" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="133" name="mtFinish" color="7" fill="1" visible="no" active="no"/>
+<layer number="134" name="mbFinish" color="7" fill="1" visible="no" active="no"/>
+<layer number="135" name="mtGlue" color="7" fill="1" visible="no" active="no"/>
+<layer number="136" name="mbGlue" color="7" fill="1" visible="no" active="no"/>
+<layer number="137" name="mtTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="138" name="mbTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="139" name="mtKeepout" color="7" fill="1" visible="no" active="no"/>
+<layer number="140" name="mbKeepout" color="7" fill="1" visible="no" active="no"/>
+<layer number="141" name="mtRestrict" color="7" fill="1" visible="no" active="no"/>
+<layer number="142" name="mbRestrict" color="7" fill="1" visible="no" active="no"/>
+<layer number="143" name="mvRestrict" color="7" fill="1" visible="no" active="no"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="no" active="yes"/>
+<layer number="145" name="mHoles" color="7" fill="1" visible="no" active="no"/>
+<layer number="146" name="mMilling" color="7" fill="1" visible="no" active="no"/>
+<layer number="147" name="mMeasures" color="7" fill="1" visible="no" active="no"/>
+<layer number="148" name="mDocument" color="7" fill="1" visible="no" active="no"/>
+<layer number="149" name="mReference" color="7" fill="1" visible="no" active="no"/>
 <layer number="150" name="Notes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="151" name="HeatSink" color="7" fill="1" visible="no" active="yes"/>
 <layer number="152" name="_bDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="153" name="FabDoc1" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="154" name="FabDoc2" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="155" name="FabDoc3" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="191" name="mNets" color="7" fill="1" visible="no" active="no"/>
+<layer number="192" name="mBusses" color="7" fill="1" visible="no" active="no"/>
+<layer number="193" name="mPins" color="7" fill="1" visible="no" active="no"/>
+<layer number="194" name="mSymbols" color="7" fill="1" visible="no" active="no"/>
+<layer number="195" name="mNames" color="7" fill="1" visible="no" active="no"/>
+<layer number="196" name="mValues" color="7" fill="1" visible="no" active="no"/>
 <layer number="199" name="Contour" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="200" name="200bmp" color="1" fill="10" visible="no" active="yes"/>
 <layer number="201" name="201bmp" color="2" fill="10" visible="no" active="yes"/>
@@ -1450,6 +1478,7 @@ chip</description>
 <wire x1="248.92" y1="185.42" x2="248.92" y2="0" width="0.4064" layer="94"/>
 <wire x1="0" y1="185.42" x2="0" y2="0" width="0.4064" layer="94"/>
 <wire x1="0" y1="0" x2="248.92" y2="0" width="0.4064" layer="94"/>
+<text x="5.08" y="175.26" size="3.81" layer="94">&gt;SHEET_NAME</text>
 </symbol>
 <symbol name="DOCFIELD">
 <wire x1="0" y1="0" x2="71.12" y2="0" width="0.254" layer="94"/>
@@ -1503,18 +1532,6 @@ chip</description>
 <wire x1="0" y1="2.54" x2="-0.762" y2="1.27" width="0.254" layer="94"/>
 <text x="-1.016" y="3.556" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="V_BATT" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
-</symbol>
-<symbol name="1.8V">
-<wire x1="0.762" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="2.54" x2="-0.762" y2="1.27" width="0.254" layer="94"/>
-<text x="-1.016" y="3.556" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="1.8V" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
-</symbol>
-<symbol name="2.5V">
-<wire x1="0.762" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="2.54" x2="-0.762" y2="1.27" width="0.254" layer="94"/>
-<text x="-1.016" y="3.556" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="2.5V" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
 </symbol>
 <symbol name="3.0V">
 <wire x1="0.762" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
@@ -1593,20 +1610,6 @@ chip</description>
 <pin name="EN_3.3V" x="-12.7" y="2.54" length="short"/>
 <pin name="3.0" x="12.7" y="-2.54" length="short" rot="R180"/>
 <pin name="3.3V" x="12.7" y="2.54" length="short" rot="R180"/>
-</symbol>
-<symbol name="MIC5335-JGYMT">
-<wire x1="-10.16" y1="10.16" x2="10.16" y2="10.16" width="0.254" layer="94"/>
-<wire x1="10.16" y1="10.16" x2="10.16" y2="-10.16" width="0.254" layer="94"/>
-<wire x1="10.16" y1="-10.16" x2="-10.16" y2="-10.16" width="0.254" layer="94"/>
-<wire x1="-10.16" y1="-10.16" x2="-10.16" y2="10.16" width="0.254" layer="94"/>
-<text x="-10.16" y="12.7" size="1.778" layer="95" align="top-left">&gt;NAME</text>
-<text x="-10.16" y="-12.7" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="VIN" x="-12.7" y="7.62" length="short"/>
-<pin name="GND" x="-12.7" y="-7.62" length="short"/>
-<pin name="EN_1.8V" x="-12.7" y="-2.54" length="short"/>
-<pin name="EN_2.5V" x="-12.7" y="2.54" length="short"/>
-<pin name="1.8V" x="12.7" y="-2.54" length="short" rot="R180"/>
-<pin name="2.5V" x="12.7" y="2.54" length="short" rot="R180"/>
 </symbol>
 <symbol name="AT86RF233">
 <wire x1="10.16" y1="15.24" x2="-10.16" y2="15.24" width="0.254" layer="94"/>
@@ -1839,32 +1842,6 @@ Standard 8.5x11 US Letter frame</description>
 <description>Battery voltage supply symbol</description>
 <gates>
 <gate name="G$1" symbol="V_BATT" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="1.8V">
-<description>1.8V supply symbol</description>
-<gates>
-<gate name="G$1" symbol="1.8V" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="2.5V">
-<description>2.5V supply symbol</description>
-<gates>
-<gate name="G$1" symbol="2.5V" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -2212,29 +2189,6 @@ Digi-Key P/N: 893-1046-6-ND</description>
 <technologies>
 <technology name="">
 <attribute name="DIGIKEY" value="576-1949-1-ND" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="MIC5335-JGYMT" prefix="IC">
-<description>Micrel MIC5335 150mA  dual (2.5V/1.8V) voltage regulator</description>
-<gates>
-<gate name="G$1" symbol="MIC5335-JGYMT" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="MLF-6">
-<connects>
-<connect gate="G$1" pin="1.8V" pad="5"/>
-<connect gate="G$1" pin="2.5V" pad="6"/>
-<connect gate="G$1" pin="EN_1.8V" pad="3"/>
-<connect gate="G$1" pin="EN_2.5V" pad="4"/>
-<connect gate="G$1" pin="GND" pad="2 EPAD"/>
-<connect gate="G$1" pin="VIN" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="DIGIKEY" value="576-3589-1-ND" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -3149,6 +3103,61 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <wire x1="2" y1="-2" x2="2" y2="2" width="0.127" layer="52"/>
 <wire x1="2" y1="2" x2="-2" y2="2" width="0.127" layer="52"/>
 </package>
+<package name="HRS-DM3AT">
+<description>&lt;b&gt;Hirose DM3AT&lt;/b&gt;
+&lt;p&gt;
+Hirose DM3 series top mout push-push ejection mechanism microSD card connector
+&lt;p&gt;
+Source: &lt;a href="http://www.hirose.co.jp/cataloge_hp/e60900232.pdf"&gt;http://www.hirose.co.jp/cataloge_hp/e60900232.pdf&lt;/a&gt;</description>
+<wire x1="4.84" y1="4.14" x2="3.84" y2="5.14" width="0.1016" layer="51" curve="90"/>
+<wire x1="3.84" y1="5.14" x2="-5.16" y2="5.14" width="0.1016" layer="51"/>
+<wire x1="-5.16" y1="5.14" x2="-6.16" y2="4.14" width="0.1016" layer="51" curve="90"/>
+<wire x1="-6.16" y1="-10.81" x2="-5.16" y2="-11.81" width="0.1016" layer="51" style="shortdash" curve="90"/>
+<wire x1="-5.16" y1="-11.81" x2="3.84" y2="-11.81" width="0.1016" layer="51" style="dashdot"/>
+<wire x1="3.84" y1="-11.81" x2="4.84" y2="-10.81" width="0.1016" layer="51" style="shortdash" curve="90"/>
+<wire x1="-6.16" y1="-6.01" x2="-5.16" y2="-7.01" width="0.1016" layer="51" curve="90"/>
+<wire x1="-5.16" y1="-7.01" x2="3.84" y2="-7.01" width="0.1016" layer="51" style="dashdot"/>
+<wire x1="3.84" y1="-7.01" x2="4.84" y2="-6.01" width="0.1016" layer="51" curve="90"/>
+<wire x1="-6.16" y1="-6.76" x2="-5.16" y2="-7.81" width="0.1016" layer="51" curve="90"/>
+<wire x1="3.84" y1="-7.81" x2="4.84" y2="-6.81" width="0.1016" layer="51" curve="90"/>
+<wire x1="-5.16" y1="-7.81" x2="3.84" y2="-7.81" width="0.1016" layer="51"/>
+<wire x1="-6.16" y1="4.14" x2="-6.16" y2="-6.01" width="0.1016" layer="51"/>
+<wire x1="-6.16" y1="-6.76" x2="-6.16" y2="-6.56" width="0.02" layer="51"/>
+<wire x1="-6.16" y1="-6.56" x2="-6.16" y2="-6.01" width="0.02" layer="51"/>
+<wire x1="4.84" y1="-6.81" x2="4.84" y2="-6.56" width="0.02" layer="51"/>
+<wire x1="4.84" y1="-6.56" x2="4.84" y2="-6.01" width="0.02" layer="51"/>
+<wire x1="4.84" y1="-6.01" x2="4.84" y2="4.14" width="0.1016" layer="51"/>
+<wire x1="4.84" y1="-10.81" x2="4.84" y2="-6.81" width="0.1016" layer="51"/>
+<wire x1="-6.16" y1="-10.81" x2="-6.16" y2="-6.76" width="0.1016" layer="51"/>
+<wire x1="-7.26" y1="9.61" x2="6.74" y2="9.61" width="0.2032" layer="51"/>
+<wire x1="6.74" y1="9.61" x2="6.74" y2="-6.56" width="0.2032" layer="51"/>
+<wire x1="-7.26" y1="-6.56" x2="-7.26" y2="9.61" width="0.2032" layer="51"/>
+<wire x1="-7.26" y1="-6.56" x2="-6.16" y2="-6.56" width="0.2032" layer="51"/>
+<wire x1="4.84" y1="-6.56" x2="6.74" y2="-6.56" width="0.2032" layer="51"/>
+<smd name="1" x="2.54" y="9.69" dx="0.7" dy="1.6" layer="1"/>
+<smd name="2" x="1.44" y="9.69" dx="0.7" dy="1.6" layer="1"/>
+<smd name="3" x="0.34" y="9.69" dx="0.7" dy="1.6" layer="1"/>
+<smd name="4" x="-0.76" y="9.69" dx="0.7" dy="1.6" layer="1"/>
+<smd name="5" x="-1.86" y="9.69" dx="0.7" dy="1.6" layer="1"/>
+<smd name="6" x="-2.96" y="9.69" dx="0.7" dy="1.6" layer="1"/>
+<smd name="7" x="-4.06" y="9.69" dx="0.7" dy="1.6" layer="1"/>
+<smd name="8" x="-5.16" y="9.69" dx="0.7" dy="1.6" layer="1"/>
+<smd name="B" x="-6.11" y="9.69" dx="0.7" dy="1.6" layer="1"/>
+<smd name="MNT@1" x="-7.46" y="5.19" dx="1.6" dy="1.2" layer="1"/>
+<smd name="A" x="-7.46" y="-1.01" dx="1.6" dy="0.8" layer="1"/>
+<smd name="MNT@2" x="-7.26" y="-5.16" dx="1.4" dy="2.8" layer="1"/>
+<smd name="MNT@3" x="6.64" y="-5.61" dx="1.7" dy="1.9" layer="1"/>
+<smd name="MNT@4" x="4.09" y="9.69" dx="1" dy="1.6" layer="1"/>
+<text x="-3.56" y="-11.61" size="0.4" layer="51">CARD EJECT POSITION</text>
+<text x="-3.46" y="-7.61" size="0.4" layer="51">CARD LOCK POSITION</text>
+<text x="-4.91" y="-6.81" size="0.4" layer="51">CARD OVER STROKE POSITION</text>
+<text x="-6.25" y="10.5" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-3" y="-9" size="0.4064" layer="27">&gt;VALUE</text>
+<rectangle x1="-7.46" y1="0.99" x2="-6.71" y2="8.74" layer="41"/>
+<rectangle x1="-6.36" y1="-4.41" x2="-5.66" y2="3.19" layer="41"/>
+<rectangle x1="-5.66" y1="2.89" x2="3.04" y2="4.49" layer="41"/>
+<rectangle x1="2.69" y1="-6.56" x2="5.24" y2="-5.21" layer="41"/>
+</package>
 </packages>
 <symbols>
 <symbol name="CY8C5688LTI-LP086_ANALOG">
@@ -3301,6 +3310,22 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <text x="1.016" y="-12.192" size="1.27" layer="94" align="bottom-center">BOOST</text>
 <pin name="VSSD_PAD" x="15.24" y="-7.62" length="short" rot="R180"/>
 </symbol>
+<symbol name="CON-SD">
+<wire x1="-5.08" y1="10.16" x2="-5.08" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-12.7" x2="7.62" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-12.7" x2="7.62" y2="10.16" width="0.254" layer="94"/>
+<wire x1="7.62" y1="10.16" x2="-5.08" y2="10.16" width="0.254" layer="94"/>
+<text x="-4.445" y="10.795" size="1.27" layer="95">&gt;NAME</text>
+<text x="-6.35" y="-14.605" size="1.27" layer="96">&gt;VALUE</text>
+<pin name="DAT2" x="-10.16" y="7.62" length="middle"/>
+<pin name="CD/DAT3" x="-10.16" y="5.08" length="middle"/>
+<pin name="CMD" x="-10.16" y="2.54" length="middle"/>
+<pin name="VDD" x="-10.16" y="0" length="middle" direction="pwr"/>
+<pin name="CLK" x="-10.16" y="-2.54" length="middle"/>
+<pin name="VSS" x="-10.16" y="-5.08" length="middle" direction="pwr"/>
+<pin name="DAT0" x="-10.16" y="-7.62" length="middle"/>
+<pin name="DAT1" x="-10.16" y="-10.16" length="middle"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="CY8C5688LTI-LP086" prefix="U">
@@ -3384,138 +3409,110 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 </device>
 </devices>
 </deviceset>
+<deviceset name="CON-HRS-DM3AT" prefix="J">
+<description>&lt;b&gt;Hirose DM3AT microSD card connector&lt;/b&gt;&lt;p&gt;
+
+Hirose DM3AT Push-Push (ejection mechanism), top board mounting microSD card connector
+&lt;p&gt;
+Source: &lt;a href="http://www.hirose.co.jp/cataloge_hp/e60900232.pdf"&gt;http://www.hirose.co.jp/cataloge_hp/e60900232.pdf</description>
+<gates>
+<gate name="G$1" symbol="CON-SD" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="HRS-DM3AT">
+<connects>
+<connect gate="G$1" pin="CD/DAT3" pad="2"/>
+<connect gate="G$1" pin="CLK" pad="5"/>
+<connect gate="G$1" pin="CMD" pad="3"/>
+<connect gate="G$1" pin="DAT0" pad="7"/>
+<connect gate="G$1" pin="DAT1" pad="8"/>
+<connect gate="G$1" pin="DAT2" pad="1"/>
+<connect gate="G$1" pin="VDD" pad="4"/>
+<connect gate="G$1" pin="VSS" pad="6"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DIGI-KEY#" value="HR1964CT-ND"/>
+<attribute name="MF" value="Hirose"/>
+<attribute name="MPN" value="DM3AT-SF-PEJM5" constant="no"/>
+<attribute name="TERMINATION-TYPE" value="Right-angle SMT (standard)"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
-<library name="SparkFun-Connectors">
-<description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
-In this library you'll find connectors and sockets- basically anything that can be plugged into or onto.&lt;br&gt;&lt;br&gt;
-We've spent an enormous amount of time creating and checking these footprints and parts, but it is the end user's responsibility to ensure correctness and suitablity for a given componet or application. If you enjoy using this library, please buy one of our products at www.sparkfun.com.
-&lt;br&gt;&lt;br&gt;
-&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
-&lt;br&gt;&lt;br&gt;
-You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<library name="OPL Eagle Library">
 <packages>
-<package name="USD-SOCKET-PP">
-<description>OLD Production Socket. DO NOT USE for production boards.</description>
-<wire x1="-6.725" y1="5.5" x2="-6.725" y2="17" width="0.2032" layer="21"/>
-<wire x1="4" y1="17" x2="7.825" y2="17" width="0.2032" layer="21"/>
-<wire x1="7.825" y1="17" x2="7.825" y2="1.7" width="0.2032" layer="21"/>
-<wire x1="6" y1="0" x2="4" y2="0" width="0.2032" layer="21"/>
-<wire x1="4" y1="0" x2="4" y2="1.65" width="0.2032" layer="21"/>
-<wire x1="-4" y1="1.65" x2="-4" y2="1" width="0.2032" layer="21"/>
-<wire x1="-4" y1="1" x2="-5" y2="1" width="0.2032" layer="21"/>
-<wire x1="-4" y1="1.65" x2="4" y2="1.65" width="0.2032" layer="21" curve="-69.416099"/>
-<wire x1="4" y1="-0.7" x2="-4" y2="-0.7" width="0.127" layer="51"/>
-<wire x1="4" y1="-1.6" x2="-4" y2="-1.6" width="0.127" layer="51"/>
-<wire x1="4" y1="-5.4" x2="-4" y2="-5.4" width="0.127" layer="51"/>
-<wire x1="-6.725" y1="3.6" x2="-6.725" y2="2.6" width="0.2032" layer="21"/>
-<smd name="GND1" x="-6.275" y="1.475" dx="1.5" dy="1.35" layer="1"/>
-<smd name="GND2" x="7.375" y="0.475" dx="1.5" dy="1.35" layer="1"/>
-<smd name="CD2" x="-6.425" y="4.5" dx="1.4" dy="1" layer="1"/>
-<smd name="CD1" x="-5.85" y="16.75" dx="1" dy="1.3" layer="1"/>
-<smd name="8" x="-4.5" y="16.8" dx="0.75" dy="1.5" layer="1"/>
-<smd name="7" x="-3.4" y="16.8" dx="0.75" dy="1.5" layer="1"/>
-<smd name="6" x="-2.3" y="16.8" dx="0.75" dy="1.5" layer="1"/>
-<smd name="5" x="-1.2" y="16.8" dx="0.75" dy="1.5" layer="1"/>
-<smd name="4" x="-0.1" y="16.8" dx="0.75" dy="1.5" layer="1"/>
-<smd name="3" x="1" y="16.8" dx="0.75" dy="1.5" layer="1"/>
-<smd name="2" x="2.1" y="16.8" dx="0.75" dy="1.5" layer="1"/>
-<smd name="1" x="3.2" y="16.8" dx="0.75" dy="1.5" layer="1"/>
-<text x="-5.08" y="7.62" size="0.4064" layer="25">&gt;Name</text>
-<text x="-5.08" y="6.35" size="0.4064" layer="27">&gt;Value</text>
-</package>
-<package name="MICRO-SD-SOCKET-PP">
-<wire x1="-14" y1="0" x2="-14" y2="13.2" width="0.2032" layer="21"/>
-<wire x1="0" y1="12.1" x2="0" y2="0" width="0.2032" layer="21"/>
-<wire x1="-11.7" y1="15.3" x2="-12.5" y2="15.3" width="0.2032" layer="21"/>
-<wire x1="-11" y1="16" x2="0" y2="16" width="0.2032" layer="51"/>
-<wire x1="-10" y1="13.6" x2="-1.6" y2="13.6" width="0.2032" layer="21"/>
-<wire x1="-14" y1="0" x2="-9.1" y2="0" width="0.2032" layer="21"/>
-<wire x1="-3.4" y1="0" x2="-6.4" y2="0" width="0.2032" layer="21"/>
-<wire x1="0" y1="0" x2="-0.7" y2="0" width="0.2032" layer="21"/>
-<wire x1="0" y1="17.6" x2="-11" y2="17.6" width="0.2032" layer="51"/>
-<wire x1="0" y1="20.7" x2="-11" y2="20.7" width="0.2032" layer="51"/>
-<wire x1="-11.7" y1="15.3" x2="-11" y2="14.6" width="0.2032" layer="21" curve="-98.797411"/>
-<wire x1="-11" y1="14.6" x2="-10" y2="13.6" width="0.2032" layer="21" curve="87.205638"/>
-<smd name="CD2" x="-7.75" y="0.4" dx="1.8" dy="1.4" layer="1"/>
-<smd name="CD1" x="-2.05" y="0.4" dx="1.8" dy="1.4" layer="1"/>
-<smd name="GND3" x="-0.45" y="13.55" dx="1.4" dy="1.9" layer="1"/>
-<smd name="GND1" x="-13.6" y="14.55" dx="1.4" dy="1.9" layer="1"/>
-<smd name="1" x="-8.94" y="10.7" dx="0.8" dy="1.5" layer="1"/>
-<smd name="2" x="-7.84" y="10.3" dx="0.8" dy="1.5" layer="1"/>
-<smd name="3" x="-6.74" y="10.7" dx="0.8" dy="1.5" layer="1"/>
-<smd name="4" x="-5.64" y="10.9" dx="0.8" dy="1.5" layer="1"/>
-<smd name="5" x="-4.54" y="10.7" dx="0.8" dy="1.5" layer="1"/>
-<smd name="6" x="-3.44" y="10.9" dx="0.8" dy="1.5" layer="1"/>
-<smd name="7" x="-2.34" y="10.7" dx="0.8" dy="1.5" layer="1"/>
-<smd name="8" x="-1.24" y="10.7" dx="0.8" dy="1.5" layer="1"/>
-<text x="-8.89" y="6.35" size="0.8128" layer="25">&gt;Name</text>
-<text x="-8.89" y="5.08" size="0.8128" layer="27">&gt;Value</text>
+<package name="R1206-8">
+<description>&lt;b&gt;BOURNS&lt;/b&gt; Chip Resistor Array&lt;p&gt;
+Source: RS Component / BUORNS</description>
+<wire x1="-1.55" y1="0.75" x2="-1" y2="0.75" width="0.1016" layer="51"/>
+<wire x1="-0.6" y1="0.75" x2="-0.2" y2="0.75" width="0.1016" layer="51"/>
+<wire x1="0.2" y1="0.75" x2="0.6" y2="0.75" width="0.1016" layer="51"/>
+<wire x1="1" y1="0.75" x2="1.55" y2="0.75" width="0.1016" layer="51"/>
+<wire x1="1.55" y1="0.75" x2="1.55" y2="-0.75" width="0.1016" layer="51"/>
+<wire x1="-1.55" y1="-0.75" x2="-1.55" y2="0.75" width="0.1016" layer="51"/>
+<wire x1="-1" y1="0.75" x2="-0.6" y2="0.75" width="0.1016" layer="51" curve="180"/>
+<wire x1="-0.2" y1="0.75" x2="0.2" y2="0.75" width="0.1016" layer="51" curve="180"/>
+<wire x1="0.6" y1="0.75" x2="1" y2="0.75" width="0.1016" layer="51" curve="180"/>
+<wire x1="1.55" y1="-0.75" x2="1" y2="-0.75" width="0.1016" layer="51"/>
+<wire x1="0.6" y1="-0.75" x2="0.2" y2="-0.75" width="0.1016" layer="51"/>
+<wire x1="-0.2" y1="-0.75" x2="-0.6" y2="-0.75" width="0.1016" layer="51"/>
+<wire x1="-1" y1="-0.75" x2="-1.55" y2="-0.75" width="0.1016" layer="51"/>
+<wire x1="1" y1="-0.75" x2="0.6" y2="-0.75" width="0.1016" layer="51" curve="180"/>
+<wire x1="0.2" y1="-0.75" x2="-0.2" y2="-0.75" width="0.1016" layer="51" curve="180"/>
+<wire x1="-0.6" y1="-0.75" x2="-1" y2="-0.75" width="0.1016" layer="51" curve="180"/>
+<wire x1="-1.651" y1="1.27" x2="1.651" y2="1.27" width="0.127" layer="21"/>
+<wire x1="1.651" y1="1.27" x2="1.651" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="1.651" y1="-1.27" x2="-1.651" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-1.651" y1="-1.27" x2="-1.651" y2="1.27" width="0.127" layer="21"/>
+<smd name="1" x="-1.2065" y="-0.762" dx="0.508" dy="0.762" layer="1"/>
+<smd name="2" x="-0.381" y="-0.762" dx="0.508" dy="0.762" layer="1"/>
+<smd name="3" x="0.381" y="-0.762" dx="0.508" dy="0.762" layer="1"/>
+<smd name="4" x="1.2065" y="-0.762" dx="0.508" dy="0.762" layer="1"/>
+<smd name="5" x="1.2065" y="0.762" dx="0.508" dy="0.762" layer="1"/>
+<smd name="6" x="0.381" y="0.762" dx="0.508" dy="0.762" layer="1"/>
+<smd name="7" x="-0.381" y="0.762" dx="0.508" dy="0.762" layer="1"/>
+<smd name="8" x="-1.2065" y="0.762" dx="0.508" dy="0.762" layer="1"/>
+<text x="-1.905" y="1.27" size="0.889" layer="25" ratio="11">&gt;NAME</text>
+<text x="-1.651" y="-0.254" size="0.635" layer="27" ratio="10">&gt;VALUE</text>
+<rectangle x1="-1.5875" y1="-1.143" x2="1.5875" y2="1.143" layer="39"/>
 </package>
 </packages>
 <symbols>
-<symbol name="USDCARD">
-<wire x1="-2.54" y1="15.24" x2="10.16" y2="15.24" width="0.254" layer="94"/>
-<wire x1="10.16" y1="15.24" x2="10.16" y2="-20.32" width="0.254" layer="94"/>
-<wire x1="10.16" y1="-20.32" x2="-2.54" y2="-20.32" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="-20.32" x2="-2.54" y2="15.24" width="0.254" layer="94"/>
-<text x="-2.54" y="15.748" size="1.778" layer="95">&gt;NAME</text>
-<text x="-2.54" y="-22.86" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="CS" x="-7.62" y="10.16" length="middle"/>
-<pin name="DI" x="-7.62" y="7.62" length="middle"/>
-<pin name="GND" x="-7.62" y="0" length="middle"/>
-<pin name="VCC" x="-7.62" y="5.08" length="middle"/>
-<pin name="SCK" x="-7.62" y="2.54" length="middle"/>
-<pin name="RSV" x="-7.62" y="-5.08" length="middle"/>
-<pin name="DO" x="-7.62" y="-2.54" length="middle"/>
-<pin name="NC" x="-7.62" y="12.7" length="middle"/>
-<pin name="SHIELD@3" x="-7.62" y="-15.24" length="middle"/>
-<pin name="SHIELD@1" x="-7.62" y="-10.16" length="middle"/>
-<pin name="SHIELD@2" x="-7.62" y="-12.7" length="middle"/>
-<pin name="SHIELD@4" x="-7.62" y="-17.78" length="middle"/>
+<symbol name="R-1">
+<wire x1="-1.27" y1="0.508" x2="1.27" y2="0.508" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0.508" x2="1.27" y2="-0.508" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-0.508" x2="-1.27" y2="-0.508" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="-0.508" x2="-1.27" y2="0.508" width="0.254" layer="94"/>
+<text x="-3.81" y="0" size="1.27" layer="95" ratio="10">&gt;name</text>
+<text x="0" y="0" size="1.27" layer="96" ratio="10">&gt;value</text>
+<pin name="1" x="-3.81" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+<pin name="2" x="3.81" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="USD-SOCKET" prefix="U">
-<description>&lt;b&gt;microSD Socket&lt;/b&gt;
-Push-push type uSD socket. Schematic element and footprint production proven. Spark Fun Electronics SKU : PRT-00127. tDoc lines correctly indicate media card edge positions when inserting (unlocked, locked, depressed).</description>
+<deviceset name="R-4R*" prefix="R" uservalue="yes">
+<description>Resistor Array</description>
 <gates>
-<gate name="G$1" symbol="USDCARD" x="0" y="0"/>
+<gate name="A" symbol="R-1" x="0" y="7.62" swaplevel="4"/>
+<gate name="B" symbol="R-1" x="0" y="2.54" swaplevel="4"/>
+<gate name="C" symbol="R-1" x="0" y="-2.54" swaplevel="4"/>
+<gate name="D" symbol="R-1" x="0" y="-7.62" swaplevel="4"/>
 </gates>
 <devices>
-<device name="USD" package="USD-SOCKET-PP">
+<device name="" package="R1206-8">
 <connects>
-<connect gate="G$1" pin="CS" pad="2"/>
-<connect gate="G$1" pin="DI" pad="3"/>
-<connect gate="G$1" pin="DO" pad="7"/>
-<connect gate="G$1" pin="GND" pad="6"/>
-<connect gate="G$1" pin="NC" pad="1"/>
-<connect gate="G$1" pin="RSV" pad="8"/>
-<connect gate="G$1" pin="SCK" pad="5"/>
-<connect gate="G$1" pin="SHIELD@1" pad="CD1"/>
-<connect gate="G$1" pin="SHIELD@2" pad="CD2"/>
-<connect gate="G$1" pin="SHIELD@3" pad="GND1"/>
-<connect gate="G$1" pin="SHIELD@4" pad="GND2"/>
-<connect gate="G$1" pin="VCC" pad="4"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="NEW" package="MICRO-SD-SOCKET-PP">
-<connects>
-<connect gate="G$1" pin="CS" pad="2"/>
-<connect gate="G$1" pin="DI" pad="3"/>
-<connect gate="G$1" pin="DO" pad="7"/>
-<connect gate="G$1" pin="GND" pad="6"/>
-<connect gate="G$1" pin="NC" pad="1"/>
-<connect gate="G$1" pin="RSV" pad="8"/>
-<connect gate="G$1" pin="SCK" pad="5"/>
-<connect gate="G$1" pin="SHIELD@1" pad="GND3"/>
-<connect gate="G$1" pin="SHIELD@2" pad="CD1"/>
-<connect gate="G$1" pin="SHIELD@3" pad="GND1"/>
-<connect gate="G$1" pin="SHIELD@4" pad="CD2"/>
-<connect gate="G$1" pin="VCC" pad="4"/>
+<connect gate="A" pin="1" pad="1"/>
+<connect gate="A" pin="2" pad="8"/>
+<connect gate="B" pin="1" pad="2"/>
+<connect gate="B" pin="2" pad="7"/>
+<connect gate="C" pin="1" pad="3"/>
+<connect gate="C" pin="2" pad="6"/>
+<connect gate="D" pin="1" pad="4"/>
+<connect gate="D" pin="2" pad="5"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -3539,9 +3536,6 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 </class>
 </classes>
 <parts>
-<part name="C5" library="biomimetic" deviceset="CAP" device="0402-CAP" value="1uF"/>
-<part name="C2" library="biomimetic" deviceset="CAP" device="0402-CAP" value="1uF"/>
-<part name="C8" library="biomimetic" deviceset="CAP" device="0402-CAP" value="1uF"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="R2" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="2.7k"/>
 <part name="R1" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="1k"/>
@@ -3597,13 +3591,7 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <part name="R7" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="2.7k"/>
 <part name="GND23" library="biomimetic" deviceset="GND" device=""/>
 <part name="GND25" library="biomimetic" deviceset="GND" device=""/>
-<part name="U$4" library="biomimetic" deviceset="V_BATT" device=""/>
 <part name="U$5" library="biomimetic" deviceset="V_BATT" device=""/>
-<part name="GND27" library="biomimetic" deviceset="GND" device=""/>
-<part name="U$6" library="biomimetic" deviceset="1.8V" device=""/>
-<part name="U$7" library="biomimetic" deviceset="2.5V" device=""/>
-<part name="GND28" library="biomimetic" deviceset="GND" device=""/>
-<part name="GND29" library="biomimetic" deviceset="GND" device=""/>
 <part name="C4" library="biomimetic" deviceset="CAP" device="0402-CAP" value="1uF"/>
 <part name="C1" library="biomimetic" deviceset="CAP" device="0402-CAP" value="1uF"/>
 <part name="C7" library="biomimetic" deviceset="CAP" device="0402-CAP" value="1uF"/>
@@ -3632,7 +3620,6 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <part name="IC6" library="biomimetic" deviceset="LTC6088" device=""/>
 <part name="IC1" library="biomimetic" deviceset="XC61GC3002HR" device="-G"/>
 <part name="IC2" library="biomimetic" deviceset="MIC5335-SPYMT" device=""/>
-<part name="IC3" library="biomimetic" deviceset="MIC5335-JGYMT" device=""/>
 <part name="C35" library="biomimetic" deviceset="CAP" device="0402-CAP" value="2.2uF">
 <attribute name="TECHNOLOGY" value="CERAMIC"/>
 <attribute name="VOLTAGE" value="6.3V"/>
@@ -3667,54 +3654,18 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <attribute name="TECHNOLOGY" value="CERAMIC"/>
 <attribute name="VOLTAGE" value="10V"/>
 </part>
-<part name="R9" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="47k">
-<attribute name="TOLERANCE" value="1%"/>
-</part>
-<part name="R10" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="47k">
-<attribute name="TOLERANCE" value="1%"/>
-</part>
 <part name="R8" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="15k">
 <attribute name="TOLERANCE" value="1%"/>
 </part>
-<part name="R11" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="15k">
-<attribute name="TOLERANCE" value="1%"/>
-</part>
 <part name="GND45" library="biomimetic" deviceset="GND" device=""/>
-<part name="R13" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="47k">
-<attribute name="TOLERANCE" value="1%"/>
-</part>
-<part name="R14" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="47k">
-<attribute name="TOLERANCE" value="1%"/>
-</part>
 <part name="R12" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="15k">
 <attribute name="TOLERANCE" value="1%"/>
 </part>
-<part name="R15" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="15k">
-<attribute name="TOLERANCE" value="1%"/>
-</part>
 <part name="GND48" library="biomimetic" deviceset="GND" device=""/>
-<part name="R19" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="47k">
-<attribute name="TOLERANCE" value="1%"/>
-</part>
-<part name="R20" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="47k">
-<attribute name="TOLERANCE" value="1%"/>
-</part>
 <part name="R17" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="15k">
 <attribute name="TOLERANCE" value="1%"/>
 </part>
-<part name="R21" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="15k">
-<attribute name="TOLERANCE" value="1%"/>
-</part>
-<part name="R23" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="47k">
-<attribute name="TOLERANCE" value="1%"/>
-</part>
-<part name="R24" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="47k">
-<attribute name="TOLERANCE" value="1%"/>
-</part>
 <part name="R22" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="15k">
-<attribute name="TOLERANCE" value="1%"/>
-</part>
-<part name="R25" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="15k">
 <attribute name="TOLERANCE" value="1%"/>
 </part>
 <part name="R16" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="4.7k">
@@ -3841,11 +3792,6 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <attribute name="VOLTAGE" value="16V"/>
 </part>
 <part name="C26" library="biomimetic" deviceset="CAP" device="0402-CAP" value="0.1uF"/>
-<part name="P11" library="wirepad" deviceset="SMD2" device="" value="EXT1"/>
-<part name="P12" library="wirepad" deviceset="SMD2" device="" value="EXT2"/>
-<part name="P13" library="wirepad" deviceset="SMD2" device="" value="EXT3"/>
-<part name="P14" library="wirepad" deviceset="SMD2" device="" value="EXT4"/>
-<part name="P16" library="wirepad" deviceset="SMD2" device="" value="EXT5"/>
 <part name="C41" library="biomimetic" deviceset="CAP" device="0402-CAP" value="2.2nF"/>
 <part name="R29" library="biomimetic" deviceset="RESISTOR" device="0402-RES" value="1k"/>
 <part name="C42" library="biomimetic" deviceset="CAP" device="0402-CAP" value="2.2nF"/>
@@ -3858,12 +3804,11 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <part name="GND26" library="biomimetic" deviceset="GND" device=""/>
 <part name="GND33" library="biomimetic" deviceset="GND" device=""/>
 <part name="GND46" library="biomimetic" deviceset="GND" device=""/>
-<part name="GND" library="wirepad" deviceset="SMD2" device="" value="EXT5"/>
-<part name="3.3V" library="wirepad" deviceset="SMD2" device="" value="EXT5"/>
-<part name="P+1" library="biomimetic" deviceset="3.3V" device=""/>
-<part name="GND24" library="biomimetic" deviceset="GND" device=""/>
 <part name="U1" library="pullin" deviceset="CY8C5688LTI-LP086" device=""/>
-<part name="U2" library="SparkFun-Connectors" deviceset="USD-SOCKET" device="NEW"/>
+<part name="J1" library="pullin" deviceset="CON-HRS-DM3AT" device=""/>
+<part name="R33" library="OPL Eagle Library" deviceset="R-4R*" device="" value="47k"/>
+<part name="R34" library="OPL Eagle Library" deviceset="R-4R*" device="" value="47k"/>
+<part name="R35" library="OPL Eagle Library" deviceset="R-4R*" device="" value="15k"/>
 </parts>
 <sheets>
 <sheet>
@@ -3871,9 +3816,6 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <plain>
 </plain>
 <instances>
-<instance part="C5" gate="G$1" x="177.8" y="96.52" rot="R180"/>
-<instance part="C2" gate="G$1" x="218.44" y="104.14"/>
-<instance part="C8" gate="G$1" x="218.44" y="76.2"/>
 <instance part="GND3" gate="1" x="78.74" y="81.28"/>
 <instance part="R2" gate="G$1" x="73.66" y="93.98" rot="R90"/>
 <instance part="R1" gate="G$1" x="73.66" y="109.22" rot="R90"/>
@@ -3883,13 +3825,7 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <attribute name="SHEET_NAME" x="0" y="0" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="FRAME6" gate="G$2" x="147.32" y="0"/>
-<instance part="U$4" gate="G$1" x="177.8" y="106.68"/>
 <instance part="U$5" gate="G$1" x="73.66" y="116.84"/>
-<instance part="GND27" gate="1" x="177.8" y="83.82"/>
-<instance part="U$6" gate="G$1" x="218.44" y="83.82"/>
-<instance part="U$7" gate="G$1" x="218.44" y="111.76"/>
-<instance part="GND28" gate="1" x="218.44" y="96.52"/>
-<instance part="GND29" gate="1" x="218.44" y="68.58"/>
 <instance part="C4" gate="G$1" x="119.38" y="96.52" rot="R180"/>
 <instance part="C1" gate="G$1" x="160.02" y="104.14"/>
 <instance part="C7" gate="G$1" x="160.02" y="76.2"/>
@@ -3903,7 +3839,6 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <instance part="GND4" gate="1" x="12.7" y="88.9"/>
 <instance part="IC1" gate="G$1" x="27.94" y="96.52"/>
 <instance part="IC2" gate="G$1" x="139.7" y="96.52"/>
-<instance part="IC3" gate="G$1" x="198.12" y="96.52"/>
 <instance part="C3" gate="G$1" x="12.7" y="96.52" rot="MR0"/>
 </instances>
 <busses>
@@ -3920,16 +3855,6 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <wire x1="78.74" y1="86.36" x2="73.66" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="78.74" y1="83.82" x2="78.74" y2="86.36" width="0.1524" layer="91"/>
 <junction x="78.74" y="86.36"/>
-</segment>
-<segment>
-<pinref part="GND28" gate="1" pin="GND"/>
-<pinref part="C2" gate="G$1" pin="2"/>
-<wire x1="218.44" y1="99.06" x2="218.44" y2="101.6" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND29" gate="1" pin="GND"/>
-<pinref part="C8" gate="G$1" pin="2"/>
-<wire x1="218.44" y1="71.12" x2="218.44" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND30" gate="1" pin="GND"/>
@@ -3957,41 +3882,6 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <pinref part="IC1" gate="G$1" pin="VSS"/>
 <pinref part="C3" gate="G$1" pin="2"/>
 <junction x="12.7" y="93.98"/>
-</segment>
-<segment>
-<pinref part="GND27" gate="1" pin="GND"/>
-<pinref part="C5" gate="G$1" pin="1"/>
-<wire x1="177.8" y1="86.36" x2="177.8" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="G$1" pin="GND"/>
-<wire x1="177.8" y1="88.9" x2="177.8" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="185.42" y1="88.9" x2="177.8" y2="88.9" width="0.1524" layer="91"/>
-<junction x="177.8" y="88.9"/>
-</segment>
-</net>
-<net name="1.8V" class="0">
-<segment>
-<pinref part="C8" gate="G$1" pin="1"/>
-<pinref part="U$6" gate="G$1" pin="1.8V"/>
-<wire x1="218.44" y1="78.74" x2="218.44" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="218.44" y1="81.28" x2="218.44" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="210.82" y1="93.98" x2="213.36" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="213.36" y1="93.98" x2="213.36" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="213.36" y1="81.28" x2="218.44" y2="81.28" width="0.1524" layer="91"/>
-<junction x="218.44" y="81.28"/>
-<pinref part="IC3" gate="G$1" pin="1.8V"/>
-</segment>
-</net>
-<net name="2.5V" class="0">
-<segment>
-<pinref part="C2" gate="G$1" pin="1"/>
-<pinref part="U$7" gate="G$1" pin="2.5V"/>
-<wire x1="218.44" y1="106.68" x2="218.44" y2="109.22" width="0.1524" layer="91"/>
-<wire x1="218.44" y1="109.22" x2="218.44" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="210.82" y1="99.06" x2="213.36" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="213.36" y1="99.06" x2="213.36" y2="109.22" width="0.1524" layer="91"/>
-<wire x1="213.36" y1="109.22" x2="218.44" y2="109.22" width="0.1524" layer="91"/>
-<junction x="218.44" y="109.22"/>
-<pinref part="IC3" gate="G$1" pin="2.5V"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
@@ -4055,24 +3945,6 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <pinref part="U$5" gate="G$1" pin="V_BATT"/>
 <pinref part="R1" gate="G$1" pin="2"/>
 <wire x1="73.66" y1="116.84" x2="73.66" y2="114.3" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="IC3" gate="G$1" pin="VIN"/>
-<wire x1="182.88" y1="104.14" x2="185.42" y2="104.14" width="0.1524" layer="91"/>
-<wire x1="182.88" y1="99.06" x2="182.88" y2="104.14" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="G$1" pin="EN_2.5V"/>
-<wire x1="185.42" y1="99.06" x2="182.88" y2="99.06" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="V_BATT"/>
-<wire x1="177.8" y1="106.68" x2="177.8" y2="104.14" width="0.1524" layer="91"/>
-<wire x1="177.8" y1="104.14" x2="182.88" y2="104.14" width="0.1524" layer="91"/>
-<junction x="182.88" y="104.14"/>
-<pinref part="IC3" gate="G$1" pin="EN_1.8V"/>
-<wire x1="185.42" y1="93.98" x2="182.88" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="182.88" y1="93.98" x2="182.88" y2="99.06" width="0.1524" layer="91"/>
-<junction x="182.88" y="99.06"/>
-<pinref part="C5" gate="G$1" pin="2"/>
-<wire x1="177.8" y1="99.06" x2="177.8" y2="104.14" width="0.1524" layer="91"/>
-<junction x="177.8" y="104.14"/>
 </segment>
 <segment>
 <pinref part="U$9" gate="G$1" pin="V_BATT"/>
@@ -4950,71 +4822,19 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <attribute name="TECHNOLOGY" x="73.66" y="86.36" size="1.778" layer="96" display="off"/>
 <attribute name="VOLTAGE" x="73.66" y="86.36" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="R9" gate="G$1" x="139.7" y="170.18" smashed="yes">
-<attribute name="NAME" x="135.89" y="174.2186" size="1.778" layer="95"/>
-<attribute name="VALUE" x="135.89" y="171.958" size="1.778" layer="96"/>
-<attribute name="TOLERANCE" x="139.7" y="170.18" size="1.778" layer="96" display="off"/>
-</instance>
-<instance part="R10" gate="G$1" x="139.7" y="165.1" smashed="yes">
-<attribute name="NAME" x="135.89" y="161.5186" size="1.778" layer="95"/>
-<attribute name="VALUE" x="135.89" y="159.258" size="1.778" layer="96"/>
-<attribute name="TOLERANCE" x="139.7" y="165.1" size="1.778" layer="96" display="off"/>
-</instance>
 <instance part="R8" gate="G$1" x="157.48" y="177.8">
 <attribute name="TOLERANCE" x="157.48" y="177.8" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="R11" gate="G$1" x="147.32" y="157.48" rot="R90">
-<attribute name="TOLERANCE" x="147.32" y="157.48" size="1.778" layer="96" rot="R90" display="off"/>
-</instance>
 <instance part="GND45" gate="1" x="68.58" y="139.7"/>
-<instance part="R13" gate="G$1" x="139.7" y="134.62" smashed="yes">
-<attribute name="NAME" x="135.89" y="138.6586" size="1.778" layer="95"/>
-<attribute name="VALUE" x="135.89" y="136.398" size="1.778" layer="96"/>
-<attribute name="TOLERANCE" x="139.7" y="134.62" size="1.778" layer="96" display="off"/>
-</instance>
-<instance part="R14" gate="G$1" x="139.7" y="129.54" smashed="yes">
-<attribute name="NAME" x="135.89" y="125.9586" size="1.778" layer="95"/>
-<attribute name="VALUE" x="135.89" y="123.698" size="1.778" layer="96"/>
-<attribute name="TOLERANCE" x="139.7" y="129.54" size="1.778" layer="96" display="off"/>
-</instance>
 <instance part="R12" gate="G$1" x="157.48" y="142.24">
 <attribute name="TOLERANCE" x="157.48" y="142.24" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="R15" gate="G$1" x="147.32" y="121.92" rot="R90">
-<attribute name="TOLERANCE" x="147.32" y="121.92" size="1.778" layer="96" rot="R90" display="off"/>
-</instance>
 <instance part="GND48" gate="1" x="68.58" y="66.04"/>
-<instance part="R19" gate="G$1" x="139.7" y="96.52" smashed="yes">
-<attribute name="NAME" x="135.89" y="100.5586" size="1.778" layer="95"/>
-<attribute name="VALUE" x="135.89" y="98.298" size="1.778" layer="96"/>
-<attribute name="TOLERANCE" x="139.7" y="96.52" size="1.778" layer="96" display="off"/>
-</instance>
-<instance part="R20" gate="G$1" x="139.7" y="91.44" smashed="yes">
-<attribute name="NAME" x="135.89" y="87.8586" size="1.778" layer="95"/>
-<attribute name="VALUE" x="135.89" y="85.598" size="1.778" layer="96"/>
-<attribute name="TOLERANCE" x="139.7" y="91.44" size="1.778" layer="96" display="off"/>
-</instance>
 <instance part="R17" gate="G$1" x="157.48" y="104.14">
 <attribute name="TOLERANCE" x="157.48" y="104.14" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="R21" gate="G$1" x="147.32" y="83.82" rot="R90">
-<attribute name="TOLERANCE" x="147.32" y="83.82" size="1.778" layer="96" rot="R90" display="off"/>
-</instance>
-<instance part="R23" gate="G$1" x="139.7" y="60.96" smashed="yes">
-<attribute name="NAME" x="135.89" y="64.9986" size="1.778" layer="95"/>
-<attribute name="VALUE" x="135.89" y="62.738" size="1.778" layer="96"/>
-<attribute name="TOLERANCE" x="139.7" y="60.96" size="1.778" layer="96" display="off"/>
-</instance>
-<instance part="R24" gate="G$1" x="139.7" y="55.88" smashed="yes">
-<attribute name="NAME" x="135.89" y="52.2986" size="1.778" layer="95"/>
-<attribute name="VALUE" x="135.89" y="50.038" size="1.778" layer="96"/>
-<attribute name="TOLERANCE" x="139.7" y="55.88" size="1.778" layer="96" display="off"/>
-</instance>
 <instance part="R22" gate="G$1" x="157.48" y="68.58">
 <attribute name="TOLERANCE" x="157.48" y="68.58" size="1.778" layer="96" display="off"/>
-</instance>
-<instance part="R25" gate="G$1" x="147.32" y="48.26" rot="R90">
-<attribute name="TOLERANCE" x="147.32" y="48.26" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="R16" gate="G$1" x="231.14" y="116.84" rot="R90">
 <attribute name="TOLERANCE" x="231.14" y="116.84" size="1.778" layer="96" rot="R90" display="off"/>
@@ -5076,6 +4896,18 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <instance part="GND26" gate="1" x="180.34" y="154.94"/>
 <instance part="GND33" gate="1" x="180.34" y="45.72"/>
 <instance part="GND46" gate="1" x="180.34" y="119.38"/>
+<instance part="R33" gate="A" x="140.97" y="170.18"/>
+<instance part="R33" gate="B" x="140.97" y="165.1"/>
+<instance part="R33" gate="C" x="140.97" y="134.62"/>
+<instance part="R33" gate="D" x="140.97" y="129.54"/>
+<instance part="R34" gate="A" x="140.97" y="96.52"/>
+<instance part="R34" gate="B" x="140.97" y="91.44"/>
+<instance part="R34" gate="C" x="140.97" y="60.96"/>
+<instance part="R34" gate="D" x="140.97" y="55.88"/>
+<instance part="R35" gate="A" x="147.32" y="158.75" rot="R270"/>
+<instance part="R35" gate="B" x="147.32" y="123.19" rot="R270"/>
+<instance part="R35" gate="C" x="147.32" y="85.09" rot="R270"/>
+<instance part="R35" gate="D" x="147.32" y="49.53" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -5236,8 +5068,7 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <pinref part="IC7" gate="S" pin="AOUT2"/>
 </segment>
 <segment>
-<pinref part="R10" gate="G$1" pin="1"/>
-<wire x1="134.62" y1="165.1" x2="132.08" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="165.1" x2="132.08" y2="165.1" width="0.1524" layer="91"/>
 <label x="111.76" y="165.1" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -5251,8 +5082,7 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <pinref part="IC7" gate="S" pin="AOUT1"/>
 </segment>
 <segment>
-<pinref part="R9" gate="G$1" pin="1"/>
-<wire x1="134.62" y1="170.18" x2="132.08" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="170.18" x2="132.08" y2="170.18" width="0.1524" layer="91"/>
 <label x="111.76" y="170.18" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -5266,8 +5096,7 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <pinref part="IC7" gate="S" pin="BOUT1"/>
 </segment>
 <segment>
-<pinref part="R13" gate="G$1" pin="1"/>
-<wire x1="134.62" y1="134.62" x2="132.08" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="134.62" x2="132.08" y2="134.62" width="0.1524" layer="91"/>
 <label x="111.76" y="134.62" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -5279,8 +5108,7 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <pinref part="IC7" gate="S" pin="BOUT2"/>
 </segment>
 <segment>
-<pinref part="R14" gate="G$1" pin="1"/>
-<wire x1="134.62" y1="129.54" x2="132.08" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="129.54" x2="132.08" y2="129.54" width="0.1524" layer="91"/>
 <label x="111.76" y="129.54" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -5292,8 +5120,7 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <pinref part="IC8" gate="S" pin="AOUT2"/>
 </segment>
 <segment>
-<pinref part="R20" gate="G$1" pin="1"/>
-<wire x1="134.62" y1="91.44" x2="132.08" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="91.44" x2="132.08" y2="91.44" width="0.1524" layer="91"/>
 <label x="111.76" y="91.44" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -5307,8 +5134,7 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <pinref part="IC8" gate="S" pin="AOUT1"/>
 </segment>
 <segment>
-<pinref part="R19" gate="G$1" pin="1"/>
-<wire x1="134.62" y1="96.52" x2="132.08" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="96.52" x2="132.08" y2="96.52" width="0.1524" layer="91"/>
 <label x="111.76" y="96.52" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -5322,8 +5148,7 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <pinref part="IC8" gate="S" pin="BOUT1"/>
 </segment>
 <segment>
-<pinref part="R23" gate="G$1" pin="1"/>
-<wire x1="134.62" y1="60.96" x2="132.08" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="60.96" x2="132.08" y2="60.96" width="0.1524" layer="91"/>
 <label x="111.76" y="60.96" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -5335,14 +5160,12 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <pinref part="IC8" gate="S" pin="BOUT2"/>
 </segment>
 <segment>
-<pinref part="R24" gate="G$1" pin="1"/>
-<wire x1="134.62" y1="55.88" x2="132.08" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="55.88" x2="132.08" y2="55.88" width="0.1524" layer="91"/>
 <label x="111.76" y="55.88" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$30" class="0">
 <segment>
-<pinref part="R9" gate="G$1" pin="2"/>
 <wire x1="144.78" y1="170.18" x2="147.32" y2="170.18" width="0.1524" layer="91"/>
 <wire x1="147.32" y1="170.18" x2="147.32" y2="177.8" width="0.1524" layer="91"/>
 <pinref part="R8" gate="G$1" pin="1"/>
@@ -5350,22 +5173,22 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <pinref part="IC6" gate="A" pin="-IN"/>
 <wire x1="149.86" y1="170.18" x2="147.32" y2="170.18" width="0.1524" layer="91"/>
 <junction x="147.32" y="170.18"/>
+<pinref part="R33" gate="A" pin="2"/>
 </segment>
 </net>
 <net name="N$31" class="0">
 <segment>
-<pinref part="R10" gate="G$1" pin="2"/>
 <wire x1="144.78" y1="165.1" x2="147.32" y2="165.1" width="0.1524" layer="91"/>
-<pinref part="R11" gate="G$1" pin="2"/>
 <wire x1="147.32" y1="165.1" x2="147.32" y2="162.56" width="0.1524" layer="91"/>
 <pinref part="IC6" gate="A" pin="+IN"/>
 <wire x1="149.86" y1="165.1" x2="147.32" y2="165.1" width="0.1524" layer="91"/>
 <junction x="147.32" y="165.1"/>
+<pinref part="R33" gate="B" pin="2"/>
+<pinref part="R35" gate="A" pin="1"/>
 </segment>
 </net>
 <net name="N$22" class="0">
 <segment>
-<pinref part="R13" gate="G$1" pin="2"/>
 <wire x1="144.78" y1="134.62" x2="147.32" y2="134.62" width="0.1524" layer="91"/>
 <wire x1="147.32" y1="134.62" x2="147.32" y2="142.24" width="0.1524" layer="91"/>
 <pinref part="R12" gate="G$1" pin="1"/>
@@ -5373,22 +5196,22 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <pinref part="IC6" gate="B" pin="-IN"/>
 <wire x1="149.86" y1="134.62" x2="147.32" y2="134.62" width="0.1524" layer="91"/>
 <junction x="147.32" y="134.62"/>
+<pinref part="R33" gate="C" pin="2"/>
 </segment>
 </net>
 <net name="N$23" class="0">
 <segment>
-<pinref part="R14" gate="G$1" pin="2"/>
 <wire x1="144.78" y1="129.54" x2="147.32" y2="129.54" width="0.1524" layer="91"/>
-<pinref part="R15" gate="G$1" pin="2"/>
 <wire x1="147.32" y1="129.54" x2="147.32" y2="127" width="0.1524" layer="91"/>
 <pinref part="IC6" gate="B" pin="+IN"/>
 <wire x1="149.86" y1="129.54" x2="147.32" y2="129.54" width="0.1524" layer="91"/>
 <junction x="147.32" y="129.54"/>
+<pinref part="R33" gate="D" pin="2"/>
+<pinref part="R35" gate="B" pin="1"/>
 </segment>
 </net>
 <net name="N$24" class="0">
 <segment>
-<pinref part="R19" gate="G$1" pin="2"/>
 <wire x1="144.78" y1="96.52" x2="147.32" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="147.32" y1="96.52" x2="147.32" y2="104.14" width="0.1524" layer="91"/>
 <pinref part="R17" gate="G$1" pin="1"/>
@@ -5396,22 +5219,22 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <pinref part="IC6" gate="C" pin="-IN"/>
 <wire x1="149.86" y1="96.52" x2="147.32" y2="96.52" width="0.1524" layer="91"/>
 <junction x="147.32" y="96.52"/>
+<pinref part="R34" gate="A" pin="2"/>
 </segment>
 </net>
 <net name="N$25" class="0">
 <segment>
-<pinref part="R20" gate="G$1" pin="2"/>
 <wire x1="144.78" y1="91.44" x2="147.32" y2="91.44" width="0.1524" layer="91"/>
-<pinref part="R21" gate="G$1" pin="2"/>
 <wire x1="147.32" y1="91.44" x2="147.32" y2="88.9" width="0.1524" layer="91"/>
 <pinref part="IC6" gate="C" pin="+IN"/>
 <wire x1="149.86" y1="91.44" x2="147.32" y2="91.44" width="0.1524" layer="91"/>
 <junction x="147.32" y="91.44"/>
+<pinref part="R34" gate="B" pin="2"/>
+<pinref part="R35" gate="C" pin="1"/>
 </segment>
 </net>
 <net name="N$26" class="0">
 <segment>
-<pinref part="R23" gate="G$1" pin="2"/>
 <wire x1="144.78" y1="60.96" x2="147.32" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="147.32" y1="60.96" x2="147.32" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="R22" gate="G$1" pin="1"/>
@@ -5419,17 +5242,18 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <pinref part="IC6" gate="D" pin="-IN"/>
 <wire x1="149.86" y1="60.96" x2="147.32" y2="60.96" width="0.1524" layer="91"/>
 <junction x="147.32" y="60.96"/>
+<pinref part="R34" gate="C" pin="2"/>
 </segment>
 </net>
 <net name="N$27" class="0">
 <segment>
-<pinref part="R24" gate="G$1" pin="2"/>
 <wire x1="144.78" y1="55.88" x2="147.32" y2="55.88" width="0.1524" layer="91"/>
-<pinref part="R25" gate="G$1" pin="2"/>
 <wire x1="147.32" y1="55.88" x2="147.32" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="IC6" gate="D" pin="+IN"/>
 <wire x1="149.86" y1="55.88" x2="147.32" y2="55.88" width="0.1524" layer="91"/>
 <junction x="147.32" y="55.88"/>
+<pinref part="R34" gate="D" pin="2"/>
+<pinref part="R35" gate="D" pin="1"/>
 </segment>
 </net>
 <net name="MOTOR_D_BEMF" class="0">
@@ -5457,23 +5281,19 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <wire x1="223.52" y1="109.22" x2="231.14" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="R11" gate="G$1" pin="1"/>
-<wire x1="147.32" y1="149.86" x2="147.32" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="149.86" x2="147.32" y2="154.94" width="0.1524" layer="91"/>
 <label x="149.86" y="149.86" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R15" gate="G$1" pin="1"/>
-<wire x1="147.32" y1="114.3" x2="147.32" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="114.3" x2="147.32" y2="119.38" width="0.1524" layer="91"/>
 <label x="149.86" y="114.3" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R21" gate="G$1" pin="1"/>
-<wire x1="147.32" y1="76.2" x2="147.32" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="76.2" x2="147.32" y2="81.28" width="0.1524" layer="91"/>
 <label x="149.86" y="76.2" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R25" gate="G$1" pin="1"/>
-<wire x1="147.32" y1="40.64" x2="147.32" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="40.64" x2="147.32" y2="45.72" width="0.1524" layer="91"/>
 <label x="149.86" y="40.64" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -5749,30 +5569,7 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <instance part="IC9" gate="P_REGOUT" x="48.26" y="33.02" smashed="yes">
 <attribute name="NAME" x="45.72" y="38.1" size="1.778" layer="95"/>
 </instance>
-<instance part="P11" gate="1" x="210.82" y="114.3" smashed="yes">
-<attribute name="NAME" x="203.2" y="114.3" size="1.778" layer="95"/>
-</instance>
-<instance part="P12" gate="1" x="210.82" y="111.76" smashed="yes">
-<attribute name="NAME" x="203.2" y="111.76" size="1.778" layer="95"/>
-</instance>
-<instance part="P13" gate="1" x="210.82" y="109.22" smashed="yes">
-<attribute name="NAME" x="203.2" y="109.22" size="1.778" layer="95"/>
-</instance>
-<instance part="P14" gate="1" x="210.82" y="106.68" smashed="yes">
-<attribute name="NAME" x="203.2" y="106.68" size="1.778" layer="95"/>
-</instance>
-<instance part="P16" gate="1" x="210.82" y="104.14" smashed="yes">
-<attribute name="NAME" x="203.2" y="104.14" size="1.778" layer="95"/>
-</instance>
-<instance part="GND" gate="1" x="210.82" y="101.6" smashed="yes">
-<attribute name="NAME" x="203.2" y="101.6" size="1.778" layer="95"/>
-</instance>
-<instance part="3.3V" gate="1" x="210.82" y="116.84" smashed="yes">
-<attribute name="NAME" x="203.2" y="116.84" size="1.778" layer="95"/>
-</instance>
-<instance part="P+1" gate="G$1" x="215.9" y="119.38"/>
-<instance part="GND24" gate="1" x="215.9" y="96.52"/>
-<instance part="U2" gate="G$1" x="162.56" y="83.82"/>
+<instance part="J1" gate="G$1" x="157.48" y="78.74"/>
 </instances>
 <busses>
 </busses>
@@ -5852,12 +5649,6 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <pinref part="C38" gate="G$1" pin="1"/>
 <pinref part="GND15" gate="1" pin="GND"/>
 <wire x1="30.48" y1="17.78" x2="30.48" y2="10.16" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND" gate="1" pin="P"/>
-<pinref part="GND24" gate="1" pin="GND"/>
-<wire x1="213.36" y1="101.6" x2="215.9" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="215.9" y1="101.6" x2="215.9" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="JP1" gate="G$1" pin="2"/>
@@ -5959,12 +5750,6 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <wire x1="15.24" y1="27.94" x2="15.24" y2="22.86" width="0.1524" layer="91"/>
 <junction x="10.16" y="27.94"/>
 <pinref part="IC9" gate="P_VDD" pin="V+"/>
-</segment>
-<segment>
-<pinref part="3.3V" gate="1" pin="P"/>
-<pinref part="P+1" gate="G$1" pin="3.3V"/>
-<wire x1="215.9" y1="116.84" x2="215.9" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="213.36" y1="116.84" x2="215.9" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="JP1" gate="G$1" pin="1"/>
@@ -6095,41 +5880,6 @@ Push-push type uSD socket. Schematic element and footprint production proven. Sp
 <pinref part="IC9" gate="S" pin="INT"/>
 <wire x1="63.5" y1="66.04" x2="66.04" y2="66.04" width="0.1524" layer="91"/>
 <label x="68.58" y="66.04" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="AN1/RB1" class="0">
-<segment>
-<pinref part="P11" gate="1" pin="P"/>
-<wire x1="213.36" y1="114.3" x2="215.9" y2="114.3" width="0.1524" layer="91"/>
-<label x="218.44" y="114.3" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="AN3/INDX/RB3" class="0">
-<segment>
-<pinref part="P12" gate="1" pin="P"/>
-<wire x1="213.36" y1="111.76" x2="215.9" y2="111.76" width="0.1524" layer="91"/>
-<label x="218.44" y="111.76" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="AN4/QEA/IC7/RB4" class="0">
-<segment>
-<pinref part="P13" gate="1" pin="P"/>
-<wire x1="213.36" y1="109.22" x2="215.9" y2="109.22" width="0.1524" layer="91"/>
-<label x="218.44" y="109.22" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="AN5/QEB/IC8/RB5" class="0">
-<segment>
-<pinref part="P14" gate="1" pin="P"/>
-<wire x1="213.36" y1="106.68" x2="215.9" y2="106.68" width="0.1524" layer="91"/>
-<label x="218.44" y="106.68" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="IC3/INT3/RD10" class="0">
-<segment>
-<pinref part="P16" gate="1" pin="P"/>
-<wire x1="213.36" y1="104.14" x2="215.9" y2="104.14" width="0.1524" layer="91"/>
-<label x="218.44" y="104.14" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$33" class="0">
